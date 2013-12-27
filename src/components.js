@@ -30,7 +30,7 @@ Crafty.c('Tree', {
 
 Crafty.c('Bush', {
   init: function() {
-    this.requires('Actor, Solid, spr_bush');
+    this.requires('Actor, Solid, spr_fsoldier');
   },
 });
 
