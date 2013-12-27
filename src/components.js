@@ -36,7 +36,7 @@ Crafty.c('Bush', {
 
 Crafty.c('Rock', {
   init: function() {
-    this.requires('Actor, Solid, spr_rock');
+    this.requires('Actor, Solid, spr_knight');
   },
 });
 
