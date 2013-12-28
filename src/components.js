@@ -48,8 +48,8 @@ Crafty.c('PlayerCharacter', {
       .onHit('Village', this.visitVillage)
       .reel('PlayerMovingDown', 1000, 0, 0, 4)
       .reel('PlayerMovingUp', 1000, 0, 1, 4)
-      .reel('PlayerMovingRight', 1000, 0, 2, 2)
-      .reel('PlayerMovingLeft', 1000, 0, 3, 2);
+      .reel('PlayerMovingRight', 1000, 0, 2, 4)
+      .reel('PlayerMovingLeft', 1000, 0, 3, 4);
 
     this.bind('NewDirection', function(data) {
       if (data.x > 0) {
