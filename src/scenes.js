@@ -68,7 +68,7 @@ Crafty.scene('Loading', function(){
     .attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
     .css($text_css);
 
-  Crafty.load(['assets/16x16_forest_3.png', 'assets/hunter.png', 'assets/units/english_knight.png', 'assets/units/french_soldier.png', 'assets/units/english_knight_sprite.png'], function(){
+  Crafty.load(['assets/16x16_forest_3.png', 'assets/hunter.png', 'assets/units/english_knight.png', 'assets/units/french_soldier.png', 'assets/units/english_knight_sprite2.png'], function(){
     Crafty.sprite(32, 'assets/16x16_forest_2.gif', {
       spr_tree:    [0, 0],
       spr_bush:    [1, 0],
@@ -84,8 +84,8 @@ Crafty.scene('Loading', function(){
       spr_fsoldier:  [0, 0]
     });
 
-    Crafty.sprite(32, 'assets/units/english_knight_sprite.png', {
-      spr_player: [0, 2]
+    Crafty.sprite(32, 'assets/units/english_knight_sprite2.png', {
+      spr_player: [1, 0]
     }, 0, 2);
 
     Crafty.scene('Game');
