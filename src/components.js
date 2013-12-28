@@ -43,12 +43,12 @@ Crafty.c('Rock', {
 Crafty.c('PlayerCharacter', {
   init: function() {
     this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-      .fourway(4)
+      .fourway(1)
       .stopOnSolids()
       .onHit('Village', this.visitVillage)
-      .reel('PlayerMovingUp', 1000, 0, 0, 3)
-      .reel('PlayerMovingRight', 1000, 0, 1, 3)
-      .reel('PlayerMovingDown', 1000, 0, 2, 3)
+      .reel('PlayerMovingDown', 1000, 0, 0, 3)
+      .reel('PlayerMovingRight', 1000, 0, 2, 3)
+      .reel('PlayerMovingUp', 1000, 0, 1, 3)
       .reel('PlayerMovingLeft', 1000, 0, 3, 3);
 
     this.bind('NewDirection', function(data) {

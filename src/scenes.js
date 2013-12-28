@@ -68,23 +68,23 @@ Crafty.scene('Loading', function(){
     .attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
     .css($text_css);
 
-  Crafty.load(['assets/16x16_forest_2.gif', 'assets/hunter.png', 'assets/units/english_knight_small.png', 'assets/units/french_soldier_small.png'], function(){
-    Crafty.sprite(16, 'assets/16x16_forest_2.gif', {
+  Crafty.load(['assets/16x16_forest_3.png', 'assets/hunter.png', 'assets/units/english_knight.png', 'assets/units/french_soldier.png', 'assets/units/english_knight_sprite.png'], function(){
+    Crafty.sprite(32, 'assets/16x16_forest_2.gif', {
       spr_tree:    [0, 0],
       spr_bush:    [1, 0],
       spr_village: [0, 1],
       spr_rock:    [1, 1]
     });
 
-    Crafty.sprite(16, 'assets/units/english_knight_small.png', {
+    Crafty.sprite(32, 'assets/units/english_knight.png', {
       spr_knight:  [0, 0]
     });
 
-    Crafty.sprite(16, 'assets/units/french_soldier_small.png', {
+    Crafty.sprite(32, 'assets/units/french_soldier.png', {
       spr_fsoldier:  [0, 0]
     });
 
-    Crafty.sprite(16, 'assets/hunter.png', {
+    Crafty.sprite(32, 'assets/units/english_knight_sprite.png', {
       spr_player: [0, 2]
     }, 0, 2);
 
