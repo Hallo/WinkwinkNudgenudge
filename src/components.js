@@ -30,13 +30,13 @@ Crafty.c('Tree', {
 
 Crafty.c('Bush', {
   init: function() {
-    this.requires('Actor, Solid, spr_fsoldier');
+    this.requires('Actor, Solid, spr_bush');
   },
 });
 
 Crafty.c('Rock', {
   init: function() {
-    this.requires('Actor, Solid, spr_knight');
+    this.requires('Actor, Solid, spr_rock');
   },
 });
 
@@ -46,10 +46,10 @@ Crafty.c('PlayerCharacter', {
       .fourway(1)
       .stopOnSolids()
       .onHit('Village', this.visitVillage)
-      .reel('PlayerMovingDown', 1000, 0, 0, 4)
-      .reel('PlayerMovingUp', 1000, 0, 1, 4)
-      .reel('PlayerMovingRight', 1000, 0, 2, 4)
-      .reel('PlayerMovingLeft', 1000, 0, 3, 4);
+      .reel('PlayerMovingDown', 650, 0, 0, 4)
+      .reel('PlayerMovingUp', 650, 0, 1, 4)
+      .reel('PlayerMovingRight', 800, 0, 2, 4)
+      .reel('PlayerMovingLeft', 800, 0, 3, 4);
 
     this.bind('NewDirection', function(data) {
       if (data.x > 0) {
@@ -92,6 +92,7 @@ Crafty.c('Village', {
 
     visit: function() {
     this.destroy();
+    Crafty.audio.play('knock');
     Crafty.trigger('VillageVisited', this);
   }
 });

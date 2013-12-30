@@ -16,12 +16,15 @@ Crafty.scene('Game', function() {
 
       if (at_edge || Math.random() < 0.03 && !this.occupied[x][y]) {
         Crafty.e('Tree').at(x, y);
+        console.log(x + ' tree ' + y)
         this.occupied[x][y] = true;
       } else if (Math.random() < 0.06 && !this.occupied[x][y]) {
         Crafty.e('Bush').at(x, y);
+        console.log(x + ' bush ' + y)
         this.occupied[x][y] = true;
       } else if (Math.random() < 0.04 && !this.occupied[x][y]) {
         Crafty.e('Rock').at(x, y);
+        console.log(x + ' rock ' + y)
         this.occupied[x][y] = true;
       }
     }
@@ -50,7 +53,7 @@ Crafty.scene('Game', function() {
 
 Crafty.scene('Victory', function() {
   Crafty.e('2D, DOM, Text')
-    .attr({x: 170, y: 140 })
+    .attr({ x: Game.width()/2 - 256, y: Game.height()/2-128, w: Game.width() })
     .textFont({ size: '100px', weight: 'bold', type: 'italic' })
     .textFont({family: 'Arial'})
     .text('Victory!');
@@ -68,8 +71,16 @@ Crafty.scene('Loading', function(){
     .attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
     .css($text_css);
 
-  Crafty.load(['assets/16x16_forest_3.png', 'assets/hunter.png', 'assets/units/english_knight.png', 'assets/units/french_soldier.png', 'assets/units/english_knight_sprite2.png'], function(){
-    Crafty.sprite(32, 'assets/16x16_forest_2.gif', {
+  Crafty.load(['assets/16x16_forest_3.png',
+              'assets/hunter.png',
+              'assets/units/english_knight.png',
+              'assets/units/french_soldier.png',
+              'assets/units/english_knight_sprite2.png',
+              'assets/door_knock_3x.mp3',
+              'assets/door_knock_3x.ogg',
+              'assets/door_knock_3x.aac'], function(){
+
+    Crafty.sprite(32, 'assets/16x16_forest_3.png', {
       spr_tree:    [0, 0],
       spr_bush:    [1, 0],
       spr_village: [0, 1],
@@ -87,6 +98,12 @@ Crafty.scene('Loading', function(){
     Crafty.sprite(32, 'assets/units/english_knight_sprite2.png', {
       spr_player: [1, 0]
     }, 0, 2);
+
+     Crafty.audio.add({
+      knock: ['assets/door_knock_3x.mp3',
+              'assets/door_knock_3x.ogg',
+              'assets/door_knock_3x.aac']
+    });
 
     Crafty.scene('Game');
   })
