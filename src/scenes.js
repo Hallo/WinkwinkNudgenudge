@@ -1,44 +1,37 @@
 Crafty.scene('Game', function() {
-  this.occupied = new Array(Game.map_grid.width);
-  for (var i = 0; i < Game.map_grid.width; i++) {
-    this.occupied[i] = new Array(Game.map_grid.height);
-    for (var y = 0; y < Game.map_grid.height; y++) {
-      this.occupied[i][y] = false;
-    }
-  }
-
-  this.player = Crafty.e('PlayerCharacter').at(5, 5);
-  this.occupied[this.player.at().x][this.player.at().y] = true;
+  var level_1 =
+"++++++++++++++++++,\
++                +,\
++    H           +,\
++                +,\
++++++++++++++    +,\
++  P  +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +     +    +,\
++     +++++++    +,\
++                +,\
++                +,\
+++++++++++++++++++".split(',');
 
   for (var x = 0; x < Game.map_grid.width; x++) {
     for (var y = 0; y < Game.map_grid.height; y++) {
-      var at_edge = x == 0 || x == Game.map_grid.width - 1 || y == 0 || y == Game.map_grid.height - 1;
-
-      if (at_edge || Math.random() < 0.03 && !this.occupied[x][y]) {
-        Crafty.e('Tree').at(x, y);
-        console.log(x + ' tree ' + y)
-        this.occupied[x][y] = true;
-      } else if (Math.random() < 0.06 && !this.occupied[x][y]) {
-        Crafty.e('Bush').at(x, y);
-        console.log(x + ' bush ' + y)
-        this.occupied[x][y] = true;
-      } else if (Math.random() < 0.04 && !this.occupied[x][y]) {
-        Crafty.e('Rock').at(x, y);
-        console.log(x + ' rock ' + y)
-        this.occupied[x][y] = true;
-      }
-    }
-  }
-
-  var max_villages = 1;
-  for (var x = 0; x < Game.map_grid.width; x++) {
-    for (var y = 0; y < Game.map_grid.height; y++) {
-      if (Math.random() < 0.02) {
-        if (Crafty('Village').length < max_villages && !this.occupied[x][y]) {
+      if (x < level_1.length && y < level_1[x].length){
+        if (level_1[x][y] === '+') {
+          Crafty.e('Tree').at(x, y);
+        } else if (level_1[x][y] === 'H') {
           Crafty.e('Village').at(x, y);
+        } else if (level_1[x][y] === 'P') {
+          this.player = Crafty.e('PlayerCharacter').at(x, y);
         }
       }
     }
+
   }
 
   this.show_victory = this.bind('VillageVisited', function() {

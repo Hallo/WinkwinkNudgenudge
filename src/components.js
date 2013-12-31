@@ -43,7 +43,7 @@ Crafty.c('Rock', {
 Crafty.c('PlayerCharacter', {
   init: function() {
     this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-      .fourway(1)
+      .fourway(10)
       .stopOnSolids()
       .onHit('Village', this.visitVillage)
       .reel('PlayerMovingDown', 650, 0, 0, 4)
@@ -90,7 +90,7 @@ Crafty.c('Village', {
     this.requires('Actor, spr_village');
   },
 
-    visit: function() {
+  visit: function() {
     this.destroy();
     Crafty.audio.play('knock');
     Crafty.trigger('VillageVisited', this);
