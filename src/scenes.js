@@ -22,11 +22,11 @@ Crafty.scene('Game', function() {
   for (var x = 0; x < Game.map_grid.width; x++) {
     for (var y = 0; y < Game.map_grid.height; y++) {
       if (x < level_1.length && y < level_1[x].length){
-        if (level_1[x][y] === '+') {
+        if (level_1[y][x] === '+') {
           Crafty.e('Tree').at(x, y);
-        } else if (level_1[x][y] === 'H') {
+        } else if (level_1[y][x] === 'H') {
           Crafty.e('Village').at(x, y);
-        } else if (level_1[x][y] === 'P') {
+        } else if (level_1[y][x] === 'P') {
           this.player = Crafty.e('PlayerCharacter').at(x, y);
         }
       }
