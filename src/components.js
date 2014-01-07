@@ -40,6 +40,18 @@ Crafty.c('Rock', {
   },
 });
 
+Crafty.c('Fsoldier', {
+  init: function() {
+    this.requires('Actor, Solid, spr_fsoldier');
+  },
+});
+
+Crafty.c('Hamster', {
+  init: function() {
+    this.requires('Actor, Solid, spr_hamster');
+  },
+});
+
 Crafty.c('PlayerCharacter', {
   init: function() {
     this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')

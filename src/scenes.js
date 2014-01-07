@@ -2,20 +2,20 @@ Crafty.scene('Game', function() {
   var level_1 =
 "++++++++++++++++++,\
 +                +,\
-+    H           +,\
-+                +,\
-+++++++++++++    +,\
++    H      RRR  +,\
++           R    +,\
++++++++++++++  --+,\
 +  P  +     +    +,\
++     +  F  +--  +,\
++     +  F  +    +,\
++     +  F  +  --+,\
++     +  F  +    +,\
++     +     +--  +,\
 +     +     +    +,\
++     +     +  --+,\
 +     +     +    +,\
-+     +     +    +,\
-+     +     +    +,\
-+     +     +    +,\
-+     +     +    +,\
-+     +     +    +,\
-+     +     +    +,\
-+     +++++++    +,\
-+                +,\
++     +++++++--  +,\
++M               +,\
 +                +,\
 ++++++++++++++++++".split(',');
 
@@ -28,6 +28,14 @@ Crafty.scene('Game', function() {
           Crafty.e('Village').at(x, y);
         } else if (level_1[y][x] === 'P') {
           this.player = Crafty.e('PlayerCharacter').at(x, y);
+        } else if (level_1[y][x] === 'R') {
+          Crafty.e('Rock').at(x, y);
+        } else if (level_1[y][x] === '-') {
+          Crafty.e('Bush').at(x, y);
+        } else if (level_1[y][x] === 'F') {
+          Crafty.e('Fsoldier').at(x, y);
+        } else if (level_1[y][x] === 'M') {
+          Crafty.e('Hamster').at(x, y);
         }
       }
     }
@@ -67,7 +75,7 @@ Crafty.scene('Loading', function(){
   Crafty.load(['assets/16x16_forest_3.png',
               'assets/objects/tree.jpg',
               'assets/objects/rock.jpg',
-              'assets/objects/push.jpg',
+              'assets/objects/bush.jpg',
               'assets/hunter.png',
               'assets/units/english_knight.png',
               'assets/units/french_soldier.png',
@@ -80,8 +88,8 @@ Crafty.scene('Loading', function(){
       spr_tree: [0, 0]
     });
 
-    Crafty.sprite(32, 'assets/objects/push.jpg', {
-      spr_push: [0, 0]
+    Crafty.sprite(32, 'assets/objects/bush.jpg', {
+      spr_bush: [0, 0]
     });
 
     Crafty.sprite(32, 'assets/objects/rock.jpg', {
