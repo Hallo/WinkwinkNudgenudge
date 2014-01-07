@@ -65,6 +65,9 @@ Crafty.scene('Loading', function(){
     .css($text_css);
 
   Crafty.load(['assets/16x16_forest_3.png',
+              'assets/objects/tree.jpg',
+              'assets/objects/rock.jpg',
+              'assets/objects/push.jpg',
               'assets/hunter.png',
               'assets/units/english_knight.png',
               'assets/units/french_soldier.png',
@@ -73,11 +76,24 @@ Crafty.scene('Loading', function(){
               'assets/door_knock_3x.ogg',
               'assets/door_knock_3x.aac'], function(){
 
-    Crafty.sprite(32, 'assets/16x16_forest_3.png', {
-      spr_tree:    [0, 0],
-      spr_bush:    [1, 0],
-      spr_village: [0, 1],
-      spr_rock:    [1, 1]
+    Crafty.sprite(32, 'assets/objects/tree.jpg', {
+      spr_tree: [0, 0]
+    });
+
+    Crafty.sprite(32, 'assets/objects/push.jpg', {
+      spr_push: [0, 0]
+    });
+
+    Crafty.sprite(32, 'assets/objects/rock.jpg', {
+      spr_rock: [0, 0]
+    });
+
+    Crafty.sprite(32, 'assets/objects/elder.jpg', {
+      spr_village: [0, 0]
+    });
+
+    Crafty.sprite(64, 'assets/objects/hamster.jpg', {
+      spr_hamster: [0, 0]
     });
 
     Crafty.sprite(32, 'assets/units/english_knight.png', {
