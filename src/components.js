@@ -88,6 +88,16 @@ Crafty.c('PlayerCharacter', {
     if (this._movement) {
       this.x -= this._movement.x;
       this.y -= this._movement.y;
+
+      this.x += this._movement.x;
+      if (this.hit('Solid')) {
+        this.x -= this._movement.x;
+      }
+
+      this.y += this._movement.y;
+      if (this.hit('Solid')) {
+        this.y -= this._movement.y;
+      }
     }
   },
 
