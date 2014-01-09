@@ -42,7 +42,53 @@ Crafty.c('Rock', {
 
 Crafty.c('Fsoldier', {
   init: function() {
-    this.requires('Actor, Solid, spr_fsoldier');
+    this.requires('Actor, Collision, Solid, spr_fsoldier')
+    this.bind('EnterFrame', this.move_);
+  },
+
+  stopMovementY: function(direction) {
+    this.y += direction;
+
+    this.y -= direction;
+    if (this.hit('Solid')) {
+      this.y += direction;
+    }
+  },
+
+  stopMovementX: function(direction) {
+    this.x += direction;
+
+    this.x -= direction;
+    if (this.hit('Solid')) {
+      this.x += direction;
+    }
+  },
+
+  move_: function() {
+    if (Math.random() > 0.7) {
+      this.x += 1;
+      if (this.hit('Solid')) {
+        this.stopMovementX(-1);
+      }
+    }
+    if (Math.random() > 0.7) {
+      this.x -= 1;
+      if (this.hit('Solid')) {
+        this.stopMovementX(-1);
+      }
+    }
+    if (Math.random() > 0.7) {
+      this.y += 1;
+      if (this.hit('Solid')) {
+        this.stopMovementY(-1);
+      }
+    }
+    if (Math.random() > 0.7) {
+      this.y -= 1;
+      if (this.hit('Solid')) {
+        this.stopMovementY(1);
+      }
+    }
   },
 });
 
@@ -114,7 +160,6 @@ Crafty.c('Village', {
 
   visit: function() {
     this.destroy();
-    Crafty.audio.play('knock');
     Crafty.trigger('VillageVisited', this);
   }
 });
