@@ -41,6 +41,8 @@ Crafty.c('Rock', {
 });
 
 Crafty.c('Fsoldier', {
+  _changeDirection: true,
+  _direction: 0,
   init: function() {
     this.requires('Actor, Collision, Solid, spr_fsoldier')
     this.bind('EnterFrame', this.move_);
@@ -65,28 +67,36 @@ Crafty.c('Fsoldier', {
   },
 
   move_: function() {
-    if (Math.random() > 0.7) {
+    if (this._changeDirection) {
+      this._direction = Math.random();
+      this._changeDirection = false;
+    }
+    if (this._direction >= 0.75) {
       this.x += 1;
       if (this.hit('Solid')) {
         this.stopMovementX(-1);
+        this._changeDirection = true;
       }
     }
-    if (Math.random() > 0.7) {
+    if (this._direction < 0.75 && this._direction >= 0.5) {
       this.x -= 1;
       if (this.hit('Solid')) {
         this.stopMovementX(1);
+        this._changeDirection = true;
       }
     }
-    if (Math.random() > 0.7) {
+    if (this._direction >= 0.25 && this._direction < 0.5) {
       this.y += 1;
       if (this.hit('Solid')) {
         this.stopMovementY(-1);
+        this._changeDirection = true;
       }
     }
-    if (Math.random() > 0.7) {
+    if (this._direction < 0.25) {
       this.y -= 1;
       if (this.hit('Solid')) {
         this.stopMovementY(1);
+        this._changeDirection = true;
       }
     }
   },
