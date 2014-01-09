@@ -74,7 +74,7 @@ Crafty.c('Fsoldier', {
     if (Math.random() > 0.7) {
       this.x -= 1;
       if (this.hit('Solid')) {
-        this.stopMovementX(-1);
+        this.stopMovementX(1);
       }
     }
     if (Math.random() > 0.7) {
